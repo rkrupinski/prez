@@ -27,16 +27,22 @@ define(['lodash'], function( _ ) {
 
     Prez.prototype._prepareSlides = function() {
 
+        var transform, data;
+
         _.forEach(this._slides, function(slide) {
 
-            var data = slide.dataset;
+            data = slide.dataset,
+            transform = [
+                            "translate(-50%, -50%) ",
+                            "translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) ",
+                            "rotateX(" + data.rotatex + "deg) ",
+                            "rotateY(" + data.rotatey + "deg) ",
+                            "rotateZ(" + data.rotatez + "deg)"
+                        ].join('');
 
-            slide.style.WebkitTransform = "translate(-50%, -50%) " +
-                                          "translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) " +
-                                          "rotateX(" + data.rotatex + "deg) " +
-                                          "rotateY(" + data.rotatey + "deg) " + 
-                                          "rotateZ(" + data.rotatez + "deg)";
-        });
+            this._setTransform(slide, transform);
+
+        }.bind(this));
 
     };
 
@@ -68,6 +74,13 @@ define(['lodash'], function( _ ) {
 
     };
 
+    Prez.prototype._setTransform = function(el, transform) {
+
+        el.style.WebkitTransform = transform;
+        el.style.transform       = transform;
+
+    };
+
     Prez.prototype._switch = function(e) {
         var data;
 
@@ -79,7 +92,7 @@ define(['lodash'], function( _ ) {
 
         setTimeout(
 
-            this[ this._current === this._slides.length - 1 ? '_end' : '_next' ].bind(this),
+            this[this._current === this._slides.length - 1 ? '_end' : '_next'].bind(this),
 
             data.duration
 
@@ -101,12 +114,17 @@ define(['lodash'], function( _ ) {
 
     Prez.prototype._transition = function(data) {
 
+        var transform = [
+                            "rotateZ(" + -data.rotatez + "deg) ",
+                            "rotateY(" + -data.rotatey + "deg) ", 
+                            "rotateX(" + -data.rotatex + "deg) ",
+                            "translate3d(" + -data.posx + "px, " + -data.posy + "px, " + -data.posz + "px)"
+                        ].join('');
+
         this._slides[this._current].classList.add(this._config.currentClassName);
 
-        this._prez3.style.WebkitTransform = "rotateZ(" + -data.rotatez + "deg) " + 
-                                            "rotateY(" + -data.rotatey + "deg) " + 
-                                            "rotateX(" + -data.rotatex + "deg) " +
-                                            "translate3d(" + -data.posx + "px, " + -data.posy + "px, " + -data.posz + "px)";
+        this._setTransform(this._prez3, transform);
+
     };
 
     Prez.prototype._end = function() {
