@@ -1,0 +1,61 @@
+@import "normalize";
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background-color: lightgray;
+}
+
+.prez1,
+.prez2,
+.prez3 {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+}
+
+.prez1 {
+    left: 50%;
+    top: 50%;
+    visibility: hidden;
+    -webkit-transform: perspective(1000px);
+
+    &.prez-active {
+        visibility: visible;
+    }
+}   
+
+.prez2 {
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+
+    &.prez-transitioning {
+    	-webkit-transition: all .5s ease-in;
+    	-webkit-transform: translateZ(-300px);
+    }
+}
+
+.prez3 {
+	-webkit-transition: -webkit-transform 1s ease-in-out;
+}
+
+.slide {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    border-radius: 10px;
+    background-color: white;
+    opacity: .2;
+    -webkit-transition: opacity .5s ease-out;
+    -webkit-transform-style: preserve-3d;
+	
+    font-size: 300px;
+    line-height: 400px;
+    text-align: center;
+
+    &.prez-current {
+        opacity: 1;
+    }
+}
