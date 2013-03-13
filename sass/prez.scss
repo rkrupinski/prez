@@ -1,3 +1,4 @@
+@import "config";
 @import "normalize";
 
 html, 
@@ -31,20 +32,20 @@ body {
 }   
 
 .prez2 {
-	-webkit-transition: -webkit-transform .5s ease-in-out;
-    transition: transform .5s ease-in-out;
+	-webkit-transition: -webkit-transform $transition-duration / 2 ease-in-out;
+    transition: transform $transition-duration / 2 ease-in-out;
 
     &.prez-transitioning {
-    	-webkit-transition: -webkit-transform .5s ease-in;
-        transition: transform .5s ease-in;
-    	-webkit-transform: translateZ(-300px);
-        transform: translateZ(-300px);
+    	-webkit-transition: -webkit-transform $transition-duration / 2 ease-in;
+        transition: transform $transition-duration / 2 ease-in;
+    	-webkit-transform: translateZ(-$zoom-out-distance);
+        transform: translateZ(-$zoom-out-distance);
     }
 }
 
 .prez3 {
-	-webkit-transition: -webkit-transform 1s ease-in-out;
-    transition: transform 1s ease-in-out;
+	-webkit-transition: -webkit-transform $transition-duration ease-in-out;
+    transition: transform $transition-duration ease-in-out;
 }
 
 .slide {
