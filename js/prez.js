@@ -5,7 +5,8 @@ define(['lodash'], function( _ ) {
 
         activeClassName        : "prez-active",
         currentClassName       : "prez-current",
-        transitioningClassName : "prez-transitioning"
+        transitioningClassName : "prez-transitioning",
+        transitionEvent        : "webkitTransitionEnd"
 
     };
 
@@ -13,9 +14,9 @@ define(['lodash'], function( _ ) {
 
         this._config    = _.extend({}, defaults, config);
 
-        this._prez1     = document.querySelectorAll(".-prez1")[0];
-        this._prez2     = document.querySelectorAll(".-prez2")[0];
-        this._prez3     = document.querySelectorAll(".-prez3")[0];
+        this._prez1     = document.querySelector(".-prez1");
+        this._prez2     = document.querySelector(".-prez2");
+        this._prez3     = document.querySelector(".-prez3");
         this._slides    = document.querySelectorAll(".-slide");
         this._current   = 0;
         this._startTime = null;
@@ -50,7 +51,7 @@ define(['lodash'], function( _ ) {
 
         this._prez2.addEventListener(
 
-            "webkitTransitionEnd", 
+            this._config.transitionEvent, 
 
             function(e) {
                 if (e.target !== this._prez2) {
@@ -64,7 +65,7 @@ define(['lodash'], function( _ ) {
 
         this._prez3.addEventListener(
 
-            "webkitTransitionEnd",
+            this._config.transitionEvent,
 
             this._switch.bind(this),
 

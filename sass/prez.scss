@@ -52,6 +52,7 @@ body {
     width: 400px;
     height: 400px;
     position: absolute;
+    z-index: 10;
     border-radius: 10px;
     background-color: white;
     opacity: .2;
@@ -66,5 +67,6 @@ body {
 
     &.prez-current {
         opacity: 1;
+        z-index: 11;
     }
 }
