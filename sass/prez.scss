@@ -24,20 +24,23 @@ body {
     left: 50%;
     top: 50%;
     visibility: hidden;
-    -webkit-transition-delay: .25s;
-    -transition-delay: .25s;
     -webkit-transform: perspective(1000);
     transform: perspective(1000);
 
     &.prez-active {
         visibility: visible;
     }
-}   
+}
+
+.prez2 {
+    -webkit-transition-delay: .3s;
+    -transition-delay: .3s;
+}
 
 .slide {
     position: absolute;
     z-index: 1;
-    opacity: .2;
+    opacity: .1;
     -webkit-transition: opacity .5s ease-out;
     transition: opacity .5s ease-out;
     -webkit-transform-style: preserve-3d;
