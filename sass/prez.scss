@@ -12,47 +12,33 @@ body {
 }
 
 .prez1,
-.prez2,
-.prez3 {
+.prez2 {
     position: absolute;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform $transition-duration ease-in-out;
+    transition: transform $transition-duration ease-in-out;
 }
 
 .prez1 {
     left: 50%;
     top: 50%;
     visibility: hidden;
-    -webkit-transform: perspective(1000px);
-    transform: perspective(1000px);
+    -webkit-transition-delay: .25s;
+    -transition-delay: .25s;
+    -webkit-transform: perspective(1000);
+    transform: perspective(1000);
 
     &.prez-active {
         visibility: visible;
     }
 }   
 
-.prez2 {
-	-webkit-transition: -webkit-transform $transition-duration / 2 ease-in-out;
-    transition: transform $transition-duration / 2 ease-in-out;
-
-    &.prez-transitioning {
-    	-webkit-transition: -webkit-transform $transition-duration / 2 ease-in;
-        transition: transform $transition-duration / 2 ease-in;
-    	-webkit-transform: translateZ(-$zoom-out-distance);
-        transform: translateZ(-$zoom-out-distance);
-    }
-}
-
-.prez3 {
-	-webkit-transition: -webkit-transform $transition-duration ease-in-out;
-    transition: transform $transition-duration ease-in-out;
-}
-
 .slide {
     width: 400px;
     height: 400px;
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     border-radius: 10px;
     background-color: white;
     opacity: .2;
@@ -60,13 +46,13 @@ body {
     transition: opacity .5s ease-out;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-	
+    
     font-size: 300px;
     line-height: 400px;
     text-align: center;
 
     &.prez-current {
+        z-index: 2;
         opacity: 1;
-        z-index: 11;
     }
 }

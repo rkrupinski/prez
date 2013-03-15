@@ -3,10 +3,10 @@ define(['lodash'], function( _ ) {
 
     var defaults = {
 
-        activeClassName        : "prez-active",
-        currentClassName       : "prez-current",
-        transitioningClassName : "prez-transitioning",
-        transitionEvent        : "webkitTransitionEnd"
+        activeClassName  : "prez-active",
+        currentClassName : "prez-current",
+        transitionEvent  : "webkitTransitionEnd",
+        basePerspective  : 1000
 
     };
 
@@ -16,7 +16,6 @@ define(['lodash'], function( _ ) {
 
         this._prez1     = document.querySelector(".-prez1");
         this._prez2     = document.querySelector(".-prez2");
-        this._prez3     = document.querySelector(".-prez3");
         this._slides    = document.querySelectorAll(".-slide");
         this._current   = 0;
         this._startTime = null;
@@ -28,20 +27,25 @@ define(['lodash'], function( _ ) {
 
     Prez.prototype._prepareSlides = function() {
 
-        var transform, data;
+        var data;
 
         _.forEach(this._slides, function(slide) {
 
-            data = slide.dataset,
-            transform = [
-                            "translate(-50%, -50%) ",
-                            "translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) ",
-                            "rotateX(" + data.rotatex + "deg) ",
-                            "rotateY(" + data.rotatey + "deg) ",
-                            "rotateZ(" + data.rotatez + "deg)"
-                        ].join('');
+            data = slide.dataset;
 
-            this._setTransform(slide, transform);
+            this._setTransform(
+
+                slide,
+
+                [
+                    "translate(-50%, -50%) ",
+                    "translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) ",
+                    "rotateX(" + data.rotatex + "deg) ",
+                    "rotateY(" + data.rotatey + "deg) ",
+                    "rotateZ(" + data.rotatez + "deg) ",
+                    "scale(" + data.scale + ")"
+                ].join('')
+            );
 
         }.bind(this));
 
@@ -50,20 +54,6 @@ define(['lodash'], function( _ ) {
     Prez.prototype._bindHandlers = function() {
 
         this._prez2.addEventListener(
-
-            this._config.transitionEvent, 
-
-            function(e) {
-                if (e.target !== this._prez2) {
-                    return;
-                }
-                e.target.classList.remove(this._config.transitioningClassName);
-            }.bind(this),
-
-            false
-        );
-
-        this._prez3.addEventListener(
 
             this._config.transitionEvent,
 
@@ -85,7 +75,7 @@ define(['lodash'], function( _ ) {
     Prez.prototype._switch = function(e) {
         var data;
 
-        if (e.target !== this._prez3) {
+        if (e.target !== this._prez2) {
             return;
         }
 
@@ -107,24 +97,38 @@ define(['lodash'], function( _ ) {
 
         this._current += 1;
 
-        this._prez2.classList.add(this._config.transitioningClassName);
-
         this._transition(this._slides[this._current].dataset);
 
     };
 
     Prez.prototype._transition = function(data) {
 
-        var transform = [
-                            "rotateZ(" + -data.rotatez + "deg) ",
-                            "rotateY(" + -data.rotatey + "deg) ", 
-                            "rotateX(" + -data.rotatex + "deg) ",
-                            "translate3d(" + -data.posx + "px, " + -data.posy + "px, " + -data.posz + "px)"
-                        ].join('');
-
         this._slides[this._current].classList.add(this._config.currentClassName);
 
-        this._setTransform(this._prez3, transform);
+        this._setTransform(
+
+            this._prez1,
+
+            [
+                "perspective(" + this._config.basePerspective + "px) ",
+                "scale(" + (1 / data.scale) + ")"
+            ].join('')
+
+        );
+
+
+        this._setTransform(
+
+            this._prez2,
+
+            [
+                "rotateZ(" + -data.rotatez + "deg) ",
+                "rotateY(" + -data.rotatey + "deg) ", 
+                "rotateX(" + -data.rotatex + "deg) ",
+                "translate3d(" + -data.posx + "px, " + -data.posy + "px, " + -data.posz + "px)"
+            ].join('')
+
+        );
 
     };
 
