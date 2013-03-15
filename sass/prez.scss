@@ -23,12 +23,12 @@ body {
 .prez1 {
     left: 50%;
     top: 50%;
-    visibility: hidden;
+    display: none;
     -webkit-transform: perspective(1000);
     transform: perspective(1000);
 
     &.prez-active {
-        visibility: visible;
+        display: block;
     }
 }
 

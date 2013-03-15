@@ -148,7 +148,7 @@ define(['lodash'], function( _ ) {
 
         this._prez1.classList.add(this._config.activeClassName);
 
-        this._transition(this._slides[this._current].dataset);
+        _.defer(this._transition.bind(this, this._slides[this._current].dataset));
 
     };
 
