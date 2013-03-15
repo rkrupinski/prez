@@ -35,21 +35,17 @@ body {
 }   
 
 .slide {
-    width: 400px;
-    height: 400px;
     position: absolute;
     z-index: 1;
-    border-radius: 10px;
-    background-color: white;
     opacity: .2;
     -webkit-transition: opacity .5s ease-out;
     transition: opacity .5s ease-out;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    
-    font-size: 300px;
-    line-height: 400px;
-    text-align: center;
+
+
+    font-family: Pacifico, cursive;
+    font-size: 200px;
 
     &.prez-current {
         z-index: 2;
