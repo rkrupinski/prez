@@ -1,4 +1,4 @@
-define(['lodash'], function( _ ) {
+define(['jquery'], function( $ ) {
     "use strict";
 
     var defaults = {
@@ -12,7 +12,7 @@ define(['lodash'], function( _ ) {
 
     function Prez(config) {
 
-        this._config    = _.extend({}, defaults, config);
+        this._config    = $.extend({}, defaults, config);
 
         this._prez1     = document.querySelector(".-prez1");
         this._prez2     = document.querySelector(".-prez2");
@@ -29,7 +29,7 @@ define(['lodash'], function( _ ) {
 
         var data;
 
-        _.forEach(this._slides, function(slide) {
+        Array.prototype.forEach.call(this._slides, function(slide) {
 
             data = slide.dataset;
 
@@ -148,7 +148,13 @@ define(['lodash'], function( _ ) {
 
         this._prez1.classList.add(this._config.activeClassName);
 
-        _.defer(this._transition.bind(this, this._slides[this._current].dataset));
+        setTimeout(
+        
+            this._transition.bind(this, this._slides[this._current].dataset),
+
+            0
+
+        );
 
     };
 
