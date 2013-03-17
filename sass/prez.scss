@@ -7,6 +7,7 @@ body {
 }
 
 body {
+    width: 100%;
     overflow: hidden;
     background-color: lightgray;
 }
@@ -14,22 +15,22 @@ body {
 .prez1,
 .prez2 {
     position: absolute;
+    visibility: hidden;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform $transition-duration ease-in-out;
-    transition: transform $transition-duration ease-in-out;
+
+    .#{$active-classname} & {
+        visibility: visible;
+        -webkit-transition: -webkit-transform $transition-duration ease-in-out;
+        transition: transform $transition-duration ease-in-out;
+    }
 }
 
 .prez1 {
     left: 50%;
     top: 50%;
-    display: none;
     -webkit-transform: perspective(1000);
     transform: perspective(1000);
-
-    &.prez-active {
-        display: block;
-    }
 }
 
 .prez2 {
@@ -41,8 +42,6 @@ body {
     position: absolute;
     z-index: 1;
     opacity: .1;
-    -webkit-transition: opacity .5s ease-out;
-    transition: opacity .5s ease-out;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 
@@ -50,8 +49,13 @@ body {
     font-family: Pacifico, cursive;
     font-size: 200px;
 
-    &.prez-current {
+    &.#{$current-classname} {
         z-index: 2;
         opacity: 1;
+    }
+
+    .#{$active-classname} & {
+        -webkit-transition: opacity .5s ease-out;
+        transition: opacity .5s ease-out;
     }
 }
