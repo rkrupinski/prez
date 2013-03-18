@@ -21,8 +21,10 @@ body {
 
     .#{$active-classname} & {
         visibility: visible;
-        -webkit-transition: -webkit-transform $transition-duration ease-in-out;
-        transition: transform $transition-duration ease-in-out;
+        -webkit-transition-property: -webkit-transform;
+        transition-property: transform;
+        -webkit-transition-timing-function: ease-in-out;
+        transition-timing-function: ease-in-out;
     }
 }
 
@@ -34,8 +36,8 @@ body {
 }
 
 .prez2 {
-    -webkit-transition-delay: .3s;
-    -transition-delay: .3s;
+    -webkit-transition-delay: 300ms;
+    transition-delay: 300ms;
 }
 
 .slide {
