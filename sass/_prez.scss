@@ -1,5 +1,4 @@
 @import "config";
-@import "normalize";
 
 html, 
 body {
@@ -7,9 +6,7 @@ body {
 }
 
 body {
-    width: 100%;
     overflow: hidden;
-    background-color: lightgray;
 }
 
 .prez1,
@@ -46,10 +43,6 @@ body {
     opacity: .1;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-
-
-    font-family: Pacifico, cursive;
-    font-size: 200px;
 
     &.#{$current-classname} {
         z-index: 2;
