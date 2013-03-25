@@ -2,55 +2,55 @@
 
 html, 
 body {
-    height: 100%;
+	height: 100%;
 }
 
 body {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .prez1,
 .prez2 {
-    position: absolute;
-    visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+	position: absolute;
+	visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 
-    .#{$active-classname} & {
-        visibility: visible;
-        -webkit-transition-property: -webkit-transform;
-        transition-property: transform;
-        -webkit-transition-timing-function: ease-in-out;
-        transition-timing-function: ease-in-out;
-    }
+	.#{$active-classname} & {
+		visibility: visible;
+		-webkit-transition-property: -webkit-transform;
+		transition-property: transform;
+		-webkit-transition-timing-function: ease-in-out;
+		transition-timing-function: ease-in-out;
+	}
 }
 
 .prez1 {
-    left: 50%;
-    top: 50%;
-    -webkit-transform: perspective(1000);
-    transform: perspective(1000);
+	left: 50%;
+	top: 50%;
+	-webkit-transform: perspective($base-perspective);
+	transform: perspective($base-perspective);
 }
 
 .prez2 {
-    -webkit-transition-delay: 300ms;
-    transition-delay: 300ms;
+	-webkit-transition-delay: 300ms;
+	transition-delay: 300ms;
 }
 
 .slide {
-    position: absolute;
-    z-index: 1;
-    opacity: .1;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+	position: absolute;
+	z-index: 1;
+	opacity: .1;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 
-    &.#{$current-classname} {
-        z-index: 2;
-        opacity: 1;
-    }
+	&.#{$current-classname} {
+		z-index: 2;
+		opacity: 1;
+	}
 
-    .#{$active-classname} & {
-        -webkit-transition: opacity .5s ease-out;
-        transition: opacity .5s ease-out;
-    }
+	.#{$active-classname} & {
+		-webkit-transition: opacity .5s ease-out;
+		transition: opacity .5s ease-out;
+	}
 }

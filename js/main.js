@@ -1,4 +1,4 @@
-require(['prez'], function( Prez ) {
+require(["prez"], function( Prez ) {
 
 	var p = new Prez({
 		callback: function(timeElapsed) {
