@@ -24,6 +24,8 @@ define(["utils", "defaults"], function(utils, defaults) {
 		Array.prototype.forEach.call(this._slides, function(slide) {
 			data = slide.dataset;
 
+			slide.classList.add(this._config.beforeClassName);
+
 			slide.style[this._config.transformProp] = [
 				"translate(-50%, -50%) ",
 				"translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) ",
@@ -45,9 +47,17 @@ define(["utils", "defaults"], function(utils, defaults) {
 	};
 
 	Prez.prototype._switch = function(e) {
+		var slide;
+
 		if (e.target !== this._prez2) {
 			return;
 		}
+
+		slide = this._getCurrentSlide();
+
+		slide.classList.remove(this._config.beforeClassName);
+		slide.classList.remove(this._config.nextClassName);
+		slide.classList.add(this._config.currentClassName);
 
 		setTimeout(
 			this[this._current < this._slides.length - 1 ? '_next' : '_end'].bind(this),
@@ -56,7 +66,11 @@ define(["utils", "defaults"], function(utils, defaults) {
 	};
 
 	Prez.prototype._next = function() {
-		this._getCurrentSlide().classList.remove(this._config.currentClassName);
+		var slide = this._getCurrentSlide();
+
+		slide.classList.remove(this._config.currentClassName);
+		slide.classList.add(this._config.afterClassName);
+
 		this._current += 1;
 		this._transition();
 	};
@@ -65,7 +79,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 		var slide = this._getCurrentSlide(),
 			data = slide.dataset;
 
-		slide.classList.add(this._config.currentClassName);
+		slide.classList.add(this._config.nextClassName);
 
 		this._prez1.style[this._config.transformProp] = [
 			"perspective(" + this._config.basePerspective + "px) ",
@@ -85,6 +99,11 @@ define(["utils", "defaults"], function(utils, defaults) {
 	};
 
 	Prez.prototype._end = function() {
+		var slide = this._getCurrentSlide();
+
+		slide.classList.remove(this._config.currentClassName);
+		slide.classList.add(this._config.afterClassName);
+
 		if (typeof this._config.callback === "function") {
 			this._config.callback.call(null, Date.now() - this._startTime);
 		}
@@ -92,7 +111,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 
 	Prez.prototype.start = function() {
 		document.body.classList.add(this._config.activeClassName);
-		
+
 		this._startTime = Date.now();
 		this._transition();
 	};

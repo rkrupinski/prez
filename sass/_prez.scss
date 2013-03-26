@@ -1,4 +1,5 @@
 @import "config";
+@import "mixins";
 
 html, 
 body {
@@ -16,7 +17,7 @@ body {
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
-	.#{$active-classname} & {
+	@include prez-active {
 		visibility: visible;
 		-webkit-transition-property: -webkit-transform;
 		transition-property: transform;
@@ -33,24 +34,17 @@ body {
 }
 
 .prez2 {
-	-webkit-transition-delay: 300ms;
-	transition-delay: 300ms;
+	-webkit-transition-delay: .3s;
+	transition-delay: .3s;
 }
 
 .slide {
 	position: absolute;
 	z-index: 1;
-	opacity: .1;
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 
 	&.#{$current-classname} {
 		z-index: 2;
-		opacity: 1;
-	}
-
-	.#{$active-classname} & {
-		-webkit-transition: opacity .5s ease-out;
-		transition: opacity .5s ease-out;
 	}
 }

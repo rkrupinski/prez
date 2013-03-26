@@ -1,0 +1,29 @@
+@mixin prez-active {
+	.#{$active-classname} & {
+		@content;
+	}
+}
+
+@mixin prez-before {
+	.#{$before-classname} & {
+		@content;
+	}
+}
+
+@mixin prez-next {
+	.#{$next-classname} & {
+		@content;
+	}
+}
+
+@mixin prez-current {
+	.#{$current-classname} & {
+		@content;
+	}
+}
+
+@mixin prez-after {
+	.#{$after-classname} & {
+		@content;
+	}
+}
