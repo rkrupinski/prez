@@ -1,14 +1,5 @@
-define(["utils"], function(utils) {
+define(["utils", "defaults"], function(utils, defaults) {
 	"use strict";
-
-	var defaults = {
-		basePerspective        : 1000,
-		activeClassName        : "prez-active",
-		currentClassName       : "prez-current",
-		transitionEndEvent     : "webkitTransitionEnd",
-		transitionDurationProp : "WebkitTransitionDuration",
-		transformProp          : "WebkitTransform"
-	};
 
 	function Prez(config) {
 		if ( !(this instanceof Prez) ) {
