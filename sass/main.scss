@@ -1,14 +1,6 @@
 @import "normalize";
 @import "prez";
 
-@-webkit-keyframes spin {
-	to { -webkit-transform: rotate(360deg) translateZ(0); }
-}
-
-@keyframes spin {
-	to { transform: rotate(360deg) translateZ(0); }
-}
-
 body {
 	background-color: lightgray;
 }
@@ -25,42 +17,32 @@ body {
 	transform: translateZ(0);
 
 	@include prez-active {
-		-webkit-transition: all .3s ease-out;
-		transition: all .3s ease-out;
+		-webkit-transition: all .5s ease-out;
+		transition: all .5s ease-out;
 	}
 
 	@include prez-current {
 		opacity: 1;
 	}
-}
 
-.word-2 {
-
-	@include prez-next {
-		-webkit-animation: spin .5s;
-		animation: spin .5s;
+	@include prez-after {
+		color: maroon;
 	}
 }
 
 .word-4 {
 
 	@include prez-current {
-		color: maroon;
+		-webkit-transform: scale(1.5) skewY(20deg) translateZ(0);
+		transform: scale(1.5) skewY(20deg) translateZ(0);
 	}
 }
 
-.word-3 {
+.word-6 {
 
 	@include prez-after {
-		-webkit-animation: spin .5s;
-		animation: spin .5s;
-	}
-}
-
-.word-5 {
-
-	@include prez-current {
-		-webkit-transform: scale(1.4) translateZ(0);
-		transform: scale(1.4) translateZ(0);
+		opacity: 1;
+		-webkit-transform: scale(1.5) translateX(-100px) rotate(-180deg) translateZ(0);
+		transform: scale(1.5) translateX(-100px) rotate(-180deg) translateZ(0);
 	}
 }
