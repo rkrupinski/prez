@@ -5,6 +5,16 @@ body {
 	background-color: lightgray;
 }
 
+.stuff {
+	width: 200px;
+	margin-left: -100px;
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	z-index: 10;
+	text-align: center;
+}
+
 .slide {
 	font-family: Pacifico, cursive;
 	font-size: 200px;
