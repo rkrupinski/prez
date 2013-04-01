@@ -28,10 +28,10 @@ define(["utils", "defaults"], function(utils, defaults) {
 
 			slide.style[this._config.transformProp] = [
 				"translate(-50%, -50%) ",
-				"translate3d(" + data.posx + "px, " + data.posy + "px, " + data.posz + "px) ",
-				"rotateX(" + data.rotatex + "deg) ",
-				"rotateY(" + data.rotatey + "deg) ",
-				"rotateZ(" + data.rotatez + "deg) ",
+				"translate3d(" + data.posX + "px, " + data.posY + "px, " + data.posZ + "px) ",
+				"rotateX(" + data.rotateX + "deg) ",
+				"rotateY(" + data.rotateY + "deg) ",
+				"rotateZ(" + data.rotateZ + "deg) ",
 				"scale(" + data.scale + ")"
 			].join("");
 
@@ -90,10 +90,10 @@ define(["utils", "defaults"], function(utils, defaults) {
 		this._prez1.style[this._config.transitionTimingProp] = data.easing;
 
 		this._prez2.style[this._config.transformProp] = [
-			"rotateZ(" + -data.rotatez + "deg) ",
-			"rotateY(" + -data.rotatey + "deg) ", 
-			"rotateX(" + -data.rotatex + "deg) ",
-			"translate3d(" + -data.posx + "px, " + -data.posy + "px, " + -data.posz + "px)"
+			"rotateZ(" + -data.rotateZ + "deg) ",
+			"rotateY(" + -data.rotateY + "deg) ", 
+			"rotateX(" + -data.rotateX + "deg) ",
+			"translate3d(" + -data.posX + "px, " + -data.posY + "px, " + -data.posZ + "px)"
 		].join("");
 
 		this._prez2.style[this._config.transitionDurationProp] = data.transition + "ms";
