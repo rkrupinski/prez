@@ -7,5 +7,6 @@ define({
 	afterClassName         : "prez-seen",
 	transitionEndEvent     : "webkitTransitionEnd",
 	transitionDurationProp : "WebkitTransitionDuration",
+	transitionTimingProp   : "WebkitTransitionTimingFunction",
 	transformProp          : "WebkitTransform"
 });

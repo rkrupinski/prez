@@ -21,8 +21,6 @@ body {
 		visibility: visible;
 		-webkit-transition-property: -webkit-transform;
 		transition-property: transform;
-		-webkit-transition-timing-function: ease-in-out;
-		transition-timing-function: ease-in-out;
 	}
 }
 
@@ -31,11 +29,6 @@ body {
 	top: 50%;
 	-webkit-transform: perspective($base-perspective);
 	transform: perspective($base-perspective);
-}
-
-.prez2 {
-	-webkit-transition-delay: .3s;
-	transition-delay: .3s;
 }
 
 .slide {

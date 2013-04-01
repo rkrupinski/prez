@@ -87,6 +87,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 		].join("");
 
 		this._prez1.style[this._config.transitionDurationProp] = data.transition + "ms";
+		this._prez1.style[this._config.transitionTimingProp] = data.easing;
 
 		this._prez2.style[this._config.transformProp] = [
 			"rotateZ(" + -data.rotatez + "deg) ",
@@ -96,6 +97,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 		].join("");
 
 		this._prez2.style[this._config.transitionDurationProp] = data.transition + "ms";
+		this._prez2.style[this._config.transitionTimingProp] = data.easing;
 	};
 
 	Prez.prototype._end = function() {
