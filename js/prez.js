@@ -1,17 +1,17 @@
-define(["utils", "defaults"], function(utils, defaults) {
+define(["utils", "config"], function(utils, config) {
 	"use strict";
 
-	function Prez(config) {
+	function Prez(options) {
 		if ( !(this instanceof Prez) ) {
-			return new Prez(config);
+			return new Prez(options);
 		}
 
-		this._config    = utils.extend({}, defaults, config);
+		this._config    = utils.extend({}, config, options);
 
 		this._prez1     = document.querySelector(".-prez1");
 		this._prez2     = document.querySelector(".-prez2");
-		this._slides    = document.querySelectorAll(".-slide");
-		this._current   = 0;
+		this._slides    = utils.makeArray(document.querySelectorAll(".-slide"));
+		this._current   = null;
 		this._startTime = null;
 
 		this._prepareSlides();
@@ -21,18 +21,22 @@ define(["utils", "defaults"], function(utils, defaults) {
 	Prez.prototype._prepareSlides = function() {
 		var data;
 
-		Array.prototype.forEach.call(this._slides, function(slide) {
+		this._slides.forEach(function(slide) {
 			data = slide.dataset;
 
 			slide.classList.add(this._config.beforeClassName);
 
 			slide.style[this._config.transformProp] = [
-				"translate(-50%, -50%) ",
-				"translate3d(" + data.posX + "px, " + data.posY + "px, " + data.posZ + "px) ",
-				"rotateX(" + data.rotateX + "deg) ",
-				"rotateY(" + data.rotateY + "deg) ",
-				"rotateZ(" + data.rotateZ + "deg) ",
-				"scale(" + data.scale + ")"
+				"translate(-50%, -50%) ", 
+				"translate3d(",
+					data.posX || 0, "px, ",
+					data.posY || 0, "px, ",
+					data.posZ || 0, "px",
+				")",
+				"rotateX(", data.rotateX || 0, "deg) ",
+				"rotateY(", data.rotateY || 0, "deg) ",
+				"rotateZ(", data.rotateZ || 0, "deg) ",
+				"scale(", data.scale || 1, ")"
 			].join("");
 
 		}.bind(this));
@@ -44,6 +48,10 @@ define(["utils", "defaults"], function(utils, defaults) {
 
 	Prez.prototype._getCurrentSlide = function() {
 		return this._slides[this._current];
+	};
+
+	Prez.prototype._isLast = function() {
+		return this._current === this._slides.length - 1;
 	};
 
 	Prez.prototype._switch = function(e) {
@@ -60,8 +68,8 @@ define(["utils", "defaults"], function(utils, defaults) {
 		slide.classList.add(this._config.currentClassName);
 
 		setTimeout(
-			this[this._current < this._slides.length - 1 ? '_next' : '_end'].bind(this),
-			this._getCurrentSlide().dataset.duration
+			this[this._isLast() ? "_end" : "_next"].bind(this),
+			this._getCurrentSlide().dataset.duration || this._config.defaults.lifetime
 		);
 	};
 
@@ -82,22 +90,26 @@ define(["utils", "defaults"], function(utils, defaults) {
 		slide.classList.add(this._config.nextClassName);
 
 		this._prez1.style[this._config.transformProp] = [
-			"perspective(" + this._config.basePerspective + "px) ",
-			"scale(" + (1 / data.scale) + ")"
+			"perspective(", this._config.defaults.perspective, "px) ",
+			"scale(", 1 / data.scale, ")"
 		].join("");
 
-		this._prez1.style[this._config.transitionDurationProp] = data.transition + "ms";
-		this._prez1.style[this._config.transitionTimingProp] = data.easing;
+		this._prez1.style[this._config.transitionDurationProp] = (data.transition || this._config.defaults.transition) + "ms";
+		this._prez1.style[this._config.transitionTimingProp] = data.easing || this._config.defaults.easing;
 
 		this._prez2.style[this._config.transformProp] = [
-			"rotateZ(" + -data.rotateZ + "deg) ",
-			"rotateY(" + -data.rotateY + "deg) ", 
-			"rotateX(" + -data.rotateX + "deg) ",
-			"translate3d(" + -data.posX + "px, " + -data.posY + "px, " + -data.posZ + "px)"
+			"rotateZ(",	-data.rotateZ || 0, "deg) ",
+			"rotateY(", -data.rotateY || 0, "deg) ",
+			"rotateX(", -data.rotateX || 0, "deg) ",
+			"translate3d(",
+				-data.posX || 0, "px, ",
+				-data.posY || 0, "px, ",
+				-data.posZ || 0, "px",
+			")"
 		].join("");
 
-		this._prez2.style[this._config.transitionDurationProp] = data.transition + "ms";
-		this._prez2.style[this._config.transitionTimingProp] = data.easing;
+		this._prez2.style[this._config.transitionDurationProp] = (data.transition || this._config.defaults.transition) + "ms";
+		this._prez2.style[this._config.transitionTimingProp] = data.easing || this._config.defaults.easing;
 	};
 
 	Prez.prototype._end = function() {
@@ -107,7 +119,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 		slide.classList.add(this._config.afterClassName);
 
 		if (typeof this._config.callback === "function") {
-			this._config.callback.call(null, Date.now() - this._startTime);
+			this._config.callback.call(this, Date.now() - this._startTime);
 		}
 	};
 
@@ -115,6 +127,7 @@ define(["utils", "defaults"], function(utils, defaults) {
 		document.body.classList.add(this._config.activeClassName);
 
 		this._startTime = Date.now();
+		this._current = 0;
 		this._transition();
 	};
 

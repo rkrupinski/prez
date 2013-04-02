@@ -14,4 +14,8 @@ define(["exports"], function(exports) {
 		return obj;
 	};
 
+	exports.makeArray = function(obj) {
+		return Array.prototype.slice.call(obj);
+	};
+
 });
