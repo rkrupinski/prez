@@ -29,7 +29,7 @@ define(["utils", "config"], function(utils, config) {
 				slide.classList.add(this._config.beforeClassName);
 
 				slide.style[this._config.transformProp] = [
-					"translate(-50%, -50%) ", 
+					"translate(-50%, -50%) ",
 					"translate3d(",
 						data.posX || 0, "px, ",
 						data.posY || 0, "px, ",
@@ -45,7 +45,7 @@ define(["utils", "config"], function(utils, config) {
 		},
 
 		_bindHandlers: function() {
-			this._prez2.addEventListener(this._config.transitionEndEvent, this._switch.bind(this), false);
+			this._prez2.addEventListener(this._config.transitionEndEvent, this._switch.bind(this));
 		},
 
 		_getCurrentSlide: function() {
@@ -100,7 +100,7 @@ define(["utils", "config"], function(utils, config) {
 			this._prez1.style[this._config.transitionTimingProp] = data.easing || this._config.defaults.easing;
 
 			this._prez2.style[this._config.transformProp] = [
-				"rotateZ(",	-data.rotateZ || 0, "deg) ",
+				"rotateZ(", -data.rotateZ || 0, "deg) ",
 				"rotateY(", -data.rotateY || 0, "deg) ",
 				"rotateX(", -data.rotateX || 0, "deg) ",
 				"translate3d(",

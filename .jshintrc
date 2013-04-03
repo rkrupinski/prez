@@ -1,0 +1,22 @@
+{
+	"curly"    : true,
+	"eqeqeq"   : true,
+	"forin"    : true,
+	"immed"    : true,
+	"latedef"  : true,
+	"newcap"   : true,
+	"noarg"    : true,
+	"noempty"  : true,
+	"quotmark" : true,
+	"undef"    : true,
+	"unused"   : true,
+	"strict"   : true,
+	"trailing" : true,
+	"boss"     : true,
+	"browser"  : true,
+	"globals"  : {
+		"console" : false,
+		"define"  : false,
+		"require" : false
+	}
+}

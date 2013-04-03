@@ -6,7 +6,7 @@ define({
 	nextClassName          : "prez-transitioning",
 	currentClassName       : "prez-viewed",
 	afterClassName         : "prez-seen",
-	
+
 	// events:
 	transitionEndEvent     : "webkitTransitionEnd",
 	transitionDurationProp : "WebkitTransitionDuration",

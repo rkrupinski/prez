@@ -1,4 +1,5 @@
 define(["exports"], function(exports) {
+	"use strict";
 
 	exports.extend = function(obj /* , sources */) {
 		var sources = Array.prototype.slice.call(arguments, 1);

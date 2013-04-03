@@ -1,4 +1,5 @@
 require(["prez"], function( Prez ) {
+	"use strict";
 
 	var p = new Prez({
 		callback: function(timeElapsed) {
