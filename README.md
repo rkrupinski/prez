@@ -11,7 +11,7 @@ A simple slide-based animation tool originally designed to work with screen capt
 
 ###usage
 
-Slide's behaviour is controlled via `data-*` attributes:
+Slides behaviour is controlled via `data-*` attributes:
 
 * `data-pos-x`, `data-pos-y`, `data-pos-z` - positions slide in three-dimensional space (default: `0`)
 * `data-rotate-x`, `data-rotate-y`, `data-rotate-z` - rotates slide around x / y / z axis (default: `0`)
@@ -29,7 +29,7 @@ Each slide has 4 states which can be addressed using SASS mixins:
 
 ###configuration
 
-For variety of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config.js).
+For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config.js).
 
 ###example
 
