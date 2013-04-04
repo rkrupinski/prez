@@ -27,8 +27,12 @@ body {
 .prez1 {
 	left: 50%;
 	top: 50%;
-	-webkit-transform: perspective($base-perspective);
-	transform: perspective($base-perspective);
+}
+
+.prez2 {
+	// Just making sure transitionend event fires... 
+	-webkit-transition-delay: .001s;
+	transition-delay: .001s;
 }
 
 .slide {
