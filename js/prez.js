@@ -69,6 +69,10 @@ define(["utils", "config"], function(utils, config) {
 			slide.classList.remove(this._config.nextClassName);
 			slide.classList.add(this._config.currentClassName);
 
+			if (typeof this._config.onProgress === "function") {
+				this._config.onProgress.call(this, this._current, slide);
+			}
+
 			setTimeout(
 				this[this._isLast() ? "_end" : "_next"].bind(this),
 				this._getCurrentSlide().dataset.duration || this._config.defaults.lifetime
@@ -120,8 +124,8 @@ define(["utils", "config"], function(utils, config) {
 			slide.classList.remove(this._config.currentClassName);
 			slide.classList.add(this._config.afterClassName);
 
-			if (typeof this._config.callback === "function") {
-				this._config.callback.call(this, Date.now() - this._startTime);
+			if (typeof this._config.onComplete === "function") {
+				this._config.onComplete.call(this, Date.now() - this._startTime);
 			}
 		},
 

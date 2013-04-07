@@ -22,6 +22,7 @@ body {
 
 .word {
 	display: block;
+	white-space: nowrap;
 	opacity: .1;
 	-webkit-transform: translateZ(0);
 	transform: translateZ(0);
@@ -54,5 +55,20 @@ body {
 		opacity: 1;
 		-webkit-transform: scale(1.5) translateX(-100px) rotate(-180deg) translateZ(0);
 		transform: scale(1.5) translateX(-100px) rotate(-180deg) translateZ(0);
+	}
+}
+
+.quot {
+	display: inline-block;
+	visibility: hidden;
+	-webkit-transition: -webkit-transform .3s;
+	transition: transform .3s;
+	-webkit-transform: scale(.1) translateZ(0);
+	transform: scale(.1) translateZ(0);
+
+	.foo & {
+		visibility: visible;
+		-webkit-transform: scale(1) translateZ(0);
+		transform: scale(1) translateZ(0);
 	}
 }

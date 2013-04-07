@@ -27,6 +27,11 @@ Each slide has 4 states which can be addressed using SASS mixins:
 * `prez-current` - addresses currently viewed slide
 * `prez-after` - addresses all seen slides
 
+Two callbacks can be passed to the `Prez` constructor:
+
+* `onComplete(timeElapsed)` invoked when last slide ends it's life
+* `onProgress(index, slide)` invoked when a slide is shown
+
 ###configuration
 
 For "variety" of available configuration options check [here](https://github.io/rkrupinski/prez/blob/master/js/config.js).
@@ -34,3 +39,9 @@ For "variety" of available configuration options check [here](https://github.io/
 ###example
 
 http://rkrupinski.github.io/prez/
+
+##changelog
+
+* "0.0.4" - `onComplete` & `onProgress` added
+* "0.0.3" - default attribute values
+* stuff...
