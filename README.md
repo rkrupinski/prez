@@ -7,7 +7,7 @@ A simple slide-based animation tool originally designed to work with screen capt
 
 * it does not come with wide browser support out of the box (assumes webkit, can be easily configured though)
 * it does not come with any controls, it just runs and notifies when it's done
-* it's public API is limited to `start` method
+* it's public API is limited to the `start` method
 
 ###usage
 
@@ -29,8 +29,8 @@ Each slide has 4 states which can be addressed using SASS mixins:
 
 ###configuration
 
-For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config.js).
+For "variety" of available configuration options check [here](https://github.io/rkrupinski/prez/blob/master/js/config.js).
 
 ###example
 
-http://rkrupinski.github.com/prez/
+http://rkrupinski.github.io/prez/
