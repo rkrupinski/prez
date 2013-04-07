@@ -40,7 +40,7 @@ For "variety" of available configuration options check [here](https://github.io/
 
 http://rkrupinski.github.io/prez/
 
-##changelog
+###changelog
 
 * "0.0.4" - `onComplete` & `onProgress` added
 * "0.0.3" - default attribute values
