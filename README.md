@@ -5,7 +5,7 @@ A simple slide-based animation tool originally designed to work with screen capt
 
 ###few things to know
 
-* it does not come with wide browser support out of the box (assumes webkit, can be easily configured though)
+* it does not come with wide browser support out of the box; no fallbacks included
 * it does not come with any controls, it just runs and notifies when it's done
 * it's public API is limited to the `start` method
 

@@ -19,4 +19,15 @@ define(["exports"], function(exports) {
 		return Array.prototype.slice.call(obj);
 	};
 
+	exports.env = function() {
+		// http://davidwalsh.name/vendor-prefix
+		var styles = window.getComputedStyle(document.documentElement, "");
+
+		return (Array.prototype.slice
+			.call(styles)
+			.join("")
+			.match(/-(moz|webkit|ms)-/) || (styles.OLink === "" && ["", "o"])
+		)[1];
+	};
+
 });

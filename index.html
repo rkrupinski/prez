@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>prez</title>
-        <meta name="description" content="A simple slide-based animation tool.">
+	<head>
+		<meta charset="utf-8">
+		<title>prez</title>
+		<meta name="description" content="A simple slide-based animation tool.">
 
-        <meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
 
-        <div class="prez1 -prez1">
-            <div class="prez2 -prez2">
+		<div class="prez1 -prez1">
+			<div class="prez2 -prez2">
 
-                <div id="lorem" class="slide -slide" data-transition="0" data-easing="linear">
-                    <span class="word word-1">lorem</span>
-                </div>
+				<div id="lorem" class="slide -slide" data-transition="0" data-easing="linear">
+					<span class="word word-1">lorem</span>
+				</div>
 
-                <div id="ipsum" class="slide -slide" data-pos-x="370" data-rotate-z="90" data-scale="0.5">
-                    <span class="word word-2">ipsum</span>
-                </div>
+				<div id="ipsum" class="slide -slide" data-pos-x="370" data-rotate-z="90" data-scale="0.5">
+					<span class="word word-2">ipsum</span>
+				</div>
 
-                <div id="dolor" class="slide -slide" data-pos-x="100" data-pos-y="340" data-rotate-z="200" data-scale="0.9">
-                    <span class="word word-3">dolor</span>
-                </div>
+				<div id="dolor" class="slide -slide" data-pos-x="100" data-pos-y="340" data-rotate-z="200" data-scale="0.9">
+					<span class="word word-3">dolor</span>
+				</div>
 
-                <div id="sit" class="slide -slide" data-pos-x="-350" data-pos-y="350" data-scale="2" data-rotate-z="90">
-                    <span class="word word-4">sit</span>
-                </div>
+				<div id="sit" class="slide -slide" data-pos-x="-350" data-pos-y="350" data-scale="2" data-rotate-z="90">
+					<span class="word word-4">sit</span>
+				</div>
 
-                <div id="amet" class="slide -slide" data-pos-x="50" data-pos-y="700" data-rotate-y="45" data-rotate-z="90" data-scale="1.2">
-                    <span class="word word-5">amet</span>
-                </div>
+				<div id="amet" class="slide -slide" data-pos-x="50" data-pos-y="700" data-rotate-y="45" data-rotate-z="90" data-scale="1.2">
+					<span class="word word-5">amet</span>
+				</div>
 
-                <div id="smiley" class="slide -slide" data-pos-x="-1300" data-pos-y="270" data-pos-z="1200" data-duration="2000" data-transition="3000" data-easing="cubic-bezier(0.295, 0.990, 0.765, 0.130)" data-rotate-z="360" data-scale="3">
-                    <span class="word word-6">☺</span>
-                </div>
+				<div id="smiley" class="slide -slide" data-pos-x="-1300" data-pos-y="270" data-pos-z="1200" data-duration="2000" data-transition="3000" data-easing="cubic-bezier(0.295, 0.990, 0.765, 0.130)" data-rotate-z="360" data-scale="3">
+					<span class="word word-6">☺</span>
+				</div>
 
-            </div>
-        </div>
+			</div>
+		</div>
 
-        <aside class="stuff">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="rkrupinski">Tweet</a>
-            <iframe src="http://ghbtns.com/github-btn.html?user=rkrupinski&repo=prez&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
-        </aside>
+		<aside class="stuff">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-via="rkrupinski">Tweet</a>
+			<iframe src="http://ghbtns.com/github-btn.html?user=rkrupinski&repo=prez&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+		</aside>
 
-        <script>
-            var require = {
-                urlArgs: "v=" + Date.now(),
-                paths: {
-                    jquery: 'jquery-1.9.1.min'
-                }
-            };
-        </script>
-        <script data-main="js/main" src="js/vendor/require.js"></script>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </body>
+		<script>
+			var require = {
+			urlArgs: "v=" + Date.now(),
+			paths: {
+				implementations: "configs",
+				feature: "vendor/feature"
+				}
+			};
+		</script>
+		<script data-main="js/main" src="js/vendor/require.js"></script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</body>
 </html>

@@ -1,4 +1,4 @@
-define(["utils", "config"], function(utils, config) {
+define(["utils", "feature!config"], function(utils, config) {
 	"use strict";
 
 	function Prez(options) {
