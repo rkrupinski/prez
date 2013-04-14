@@ -42,6 +42,7 @@ http://rkrupinski.github.io/prez/
 
 ###changelog
 
+* "0.0.5" - vendor prefix sniffing
 * "0.0.4" - `onComplete` & `onProgress` added
 * "0.0.3" - default attribute values
 * stuff...
