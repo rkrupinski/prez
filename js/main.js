@@ -1,22 +1,17 @@
 require(["prez"], function( Prez ) {
 	"use strict";
 
-	var p = new Prez({
+	function completeHandler(timeElapsed) {
+		console.log("%c" + timeElapsed, "font-size: 10em; color: transparent; -webkit-text-stroke: 3px pink;");
+	}
 
-		onComplete: function(timeElapsed) {
-			console.log("%c" + timeElapsed, "font-size: 10em; color: transparent; -webkit-text-stroke: 3px pink;");
-		},
+	function progressHandler(index, slide) {
+		console.log(index, slide.id);
+	}
 
-		onProgress: function(index, slide) {
-			console.log(index, slide.id);
-
-			if (slide.querySelectorAll(".quot").length) {
-				slide.classList.add("foo");
-			}
-		}
-
-	});
-
-	p.start();
+	new Prez({
+		onComplete: completeHandler,
+		onProgress: progressHandler
+	}).start();
 
 });

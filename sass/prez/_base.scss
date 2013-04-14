@@ -1,0 +1,39 @@
+html, 
+body {
+	height: 100%;
+}
+
+body {
+	overflow: hidden;
+}
+
+.prez1,
+.prez2 {
+	position: absolute;
+	visibility: hidden;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	@include prez-active {
+		visibility: visible;
+		-webkit-transition-property: -webkit-transform;
+		transition-property: transform;
+	}
+}
+
+.prez1 {
+	left: 50%;
+	top: 50%;
+}
+
+.prez2 {
+	// Just making sure transitionend event fires... 
+	-webkit-transition-delay: .001s;
+	transition-delay: .001s;
+}
+
+.slide {
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}

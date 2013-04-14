@@ -13,6 +13,12 @@ define({
 	transitionTimingProp   : "WebkitTransitionTimingFunction",
 	transformProp          : "WebkitTransform",
 
+	// transitionEndEvent     : "transitionend",
+	// transitionDurationProp : "MozTransitionDuration",
+	// transitionTimingProp   : "MozTransitionTimingFunction",
+	// transformProp          : "MozTransform",
+
+
 	// default values:
 	defaults: {
 		perspective        : 1000,
