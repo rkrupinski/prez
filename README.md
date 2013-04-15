@@ -34,7 +34,7 @@ Two callbacks can be passed to the `Prez` constructor:
 
 ###configuration
 
-For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config.js).
+For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config/default.js).
 
 ###example
 
