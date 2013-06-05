@@ -20,7 +20,7 @@ Slides behaviour is controlled via `data-*` attributes:
 * `data-transition` - sets slide's transition duration (default: `750`)
 * `data-easing` - sets slide's transition timing function (default: `ease`)
 
-Each slide has 4 states which can be addressed using SASS mixins:
+Each slide has 4 states which can be addressed using Sass mixins:
 
 * `prez-before` - addresses all unseen slides
 * `prez-next` - addresses slide being shown
