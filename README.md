@@ -34,7 +34,7 @@ Two callbacks can be passed to the `Prez` constructor:
 
 ###configuration
 
-For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config.js).
+For "variety" of available configuration options check [here](https://github.com/rkrupinski/prez/blob/master/js/config/default.js).
 
 ###example
 
@@ -42,7 +42,7 @@ http://rkrupinski.github.io/prez/
 
 ###changelog
 
-* "0.0.5" - vendor prefix sniffing
+* "0.0.5" - vendor prefix sniffing (which is obviously a bad practice)
 * "0.0.4" - `onComplete` & `onProgress` added
 * "0.0.3" - default attribute values
 * stuff...
